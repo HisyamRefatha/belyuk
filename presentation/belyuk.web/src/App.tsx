@@ -58,7 +58,7 @@ function App() {
                         {/* Row 1 - Main Stats */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 mb-8">
                             {/* Total Sales */}
-                            <div className="bg-[#273e42] rounded-xl p-4 border">
+                            <div className="bg-teal rounded-xl p-4 border">
                                 <div className="flex items-center justify-between mb-3">
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-8 bg-[#445c5e] rounded-lg border border-[#55979f] flex items-center justify-center">
@@ -82,7 +82,7 @@ function App() {
                             </div>
 
                             {/* Total Products */}
-                            <div className="bg-[#273e42] rounded-xl p-4 border border-slate-700">
+                            <div className="bg-teal rounded-xl p-4 border">
                                 <div className="flex items-center justify-between mb-3">
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-8 bg-[#445c5e] rounded-lg border border-[#55979f] flex items-center justify-center">
@@ -106,7 +106,7 @@ function App() {
                             </div>
 
                             {/* Latest Churn */}
-                            <div className="bg-[#273e42] rounded-xl p-4 border border-slate-700">
+                            <div className="bg-teal rounded-xl p-4 border">
                                 <div className="flex items-center justify-between mb-3">
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-8 bg-[#445c5e] rounded-lg border border-[#55979f] flex items-center justify-center">
@@ -148,7 +148,7 @@ function App() {
 
                     {/* Row 2 - Example Row for Additional Cards */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 mb-8">
-                        <div className="bg-slate-800 rounded-xl p-4 border border-slate-700 text-white">New Card 1</div>
+                        <div className="bg-card rounded-xl p-4 border text-white">New Card 1</div>
                         <div className="bg-slate-800 rounded-xl p-4 border border-slate-700 text-white">New Card 2</div>
                         <div className="bg-slate-800 rounded-xl p-4 border border-slate-700 text-white">New Card 3</div>
                     </div>

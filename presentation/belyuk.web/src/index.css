@@ -50,6 +50,8 @@
     --shadow-2xl: 0px 2px 4px 0px hsl(0 0% 0% / 0.13);
     --tracking-normal: 0rem;
     --spacing: 0.25rem;
+    --teal-bg: oklch(1 0 0);
+    --muted-bg: oklch(1 0 0);
 }
 
 .dark {
@@ -97,6 +99,8 @@
     --shadow-lg: 0px 2px 4px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
     --shadow-xl: 0px 2px 4px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
     --shadow-2xl: 0px 2px 4px 0px hsl(0 0% 0% / 0.25);
+    --teal-bg: oklch(0.3465 0.0295 209.54);
+    --muted-bg: oklch(0.4561 0.029 202.58);
 }
 
 @theme inline {
@@ -157,6 +161,10 @@
 
 body {
     letter-spacing: var(--tracking-normal);
+}
+
+.bg-teal{
+    background-color: var(--teal-bg);
 }
 
 @layer base {
