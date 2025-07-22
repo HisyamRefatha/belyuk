@@ -51,7 +51,7 @@
     --tracking-normal: 0rem;
     --spacing: 0.25rem;
     --teal-bg: oklch(1 0 0);
-    --muted-bg: oklch(1 0 0);
+    --muted-bg: oklch(0.2092 0.0061 196.69);
 }
 
 .dark {
@@ -165,6 +165,10 @@ body {
 
 .bg-teal{
     background-color: var(--teal-bg);
+}
+
+.bg-muted{
+    background-color: var(--muted-bg);
 }
 
 @layer base {
