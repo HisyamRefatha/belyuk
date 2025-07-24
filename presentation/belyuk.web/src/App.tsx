@@ -241,10 +241,7 @@ function App() {
                                         Filter
                                     </button>
                                 </div>
-                                <div className="">
-                                    {/* Chart Placeholder */}
-                                        <UsersList />
-                                </div>
+                                <UsersList />
                             </div>
                         </div>
                     </div>

@@ -625,7 +625,7 @@ const UsersList = () => {
                 id: 'user',
                 accessorFn: (row) => row.user,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Subscriber" column={column} />
+                    <DataGridColumnHeader title="Subscriber" column={column} className="dark:text-[#1a282d]"/>
                 ),
                 cell: ({ row }) => (
                     <div className="flex items-center gap-2.5">
@@ -636,13 +636,13 @@ const UsersList = () => {
                         />
                         <div className="flex flex-col">
                             <Link
-                                className="font-medium text-mono hover:text-primary-active mb-px"
+                                className="font-medium text-mono dark:text-[#1a282d] hover:text-primary-active mb-px"
                                 to="#"
                             >
                                 {row.original.user.name}
                             </Link>
                             <Link
-                                className="text-sm text-secondary-foreground hover:text-primary-active"
+                                className="text-sm text-secondary-foreground dark:text-[#1a282d] hover:text-primary-active"
                                 to="#"
                             >
                                 {row.original.user.email}
@@ -660,7 +660,7 @@ const UsersList = () => {
                 id: 'labels',
                 accessorFn: (row) => row.labels,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Products" column={column} />
+                    <DataGridColumnHeader title="Products" column={column} className="dark:text-[#1a282d]"/>
                 ),
                 cell: ({ row }) => (
                     <div className="flex gap-1.5">
@@ -686,7 +686,7 @@ const UsersList = () => {
                 id: 'license',
                 accessorFn: (row) => row.license,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="License" column={column} />
+                    <DataGridColumnHeader title="License" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => (
                     <div className="flex flex-col">
@@ -708,7 +708,7 @@ const UsersList = () => {
                 id: 'payment',
                 accessorFn: (row) => row.payment,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Latest Payment" column={column} />
+                    <DataGridColumnHeader title="Latest Payment" column={column} className="dark:text-[#1a282d]"/>
                 ),
                 cell: ({ row }) => (
                     <span className="text-foreground font-medium">
@@ -725,7 +725,7 @@ const UsersList = () => {
                 id: 'enforce',
                 accessorFn: (row) => row.enforce,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Enforce 2FA" column={column} />
+                    <DataGridColumnHeader title="Enforce 2FA" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => <EnforceSwitch enforce={row.original.enforce} />,
                 enableSorting: true,
@@ -737,7 +737,7 @@ const UsersList = () => {
             {
                 id: 'actions',
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Invoices" column={column} />
+                    <DataGridColumnHeader title="Invoices" column={column} className="dark:text-[#1a282d]" />
                 ),
                 enableSorting: false,
                 cell: () => {
@@ -798,6 +798,11 @@ const UsersList = () => {
 
     return (
         <DataGrid
+            tableClassNames={{
+                headerRow: 'dark:bg-white',
+                edgeCell: 'dark:border-[#eeeaeb]',
+                cellBorder: 'dark:border-[#eeeaeb]',
+            } }
             table={table}
             recordCount={filteredData?.length || 0}
             tableLayout={{
@@ -807,114 +812,7 @@ const UsersList = () => {
                 cellBorder: true,
             }}
         >
-            <Card className="">
-                <CardHeader>
-                    <CardHeading>
-                        <div className="flex items-center gap-2.5">
-                            <div className="relative">
-                                <Search className="size-4 text-muted-foreground absolute start-3 top-1/2 -translate-y-1/2" />
-                                <Input
-                                    placeholder="Search Users..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="ps-9 w-40 bg-white border border-gray-200"
-                                />
-                                {searchQuery.length > 0 && (
-                                    <Button
-                                        mode="icon"
-                                        variant="ghost"
-                                        className="absolute end-1.5 top-1/2 -translate-y-1/2 h-6 w-6"
-                                        onClick={() => setSearchQuery('')}
-                                    >
-                                        <X />
-                                    </Button>
-                                )}
-                            </div>
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                    <Button variant="outline">
-                                        <Filter />
-                                        Status
-                                        {selectedStatuses.length > 0 && (
-                                            <Badge size="sm" appearance="stroke">
-                                                {selectedStatuses.length}
-                                            </Badge>
-                                        )}
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-40 p-3" align="start">
-                                    <div className="space-y-3">
-                                        <div className="text-xs font-medium text-muted-foreground">
-                                            Filters
-                                        </div>
-                                        <div className="space-y-3">
-                                            {Object.keys(statusCounts).map((status) => (
-                                                <div key={status} className="flex items-center gap-2.5">
-                                                    <Checkbox
-                                                        id={status}
-                                                        checked={selectedStatuses.includes(status)}
-                                                        onCheckedChange={(checked) =>
-                                                            handleStatusChange(checked === true, status)
-                                                        }
-                                                    />
-                                                    <Label
-                                                        htmlFor={status}
-                                                        className="grow flex items-center justify-between font-normal gap-1.5"
-                                                    >
-                                                        {status}
-                                                        <span className="text-muted-foreground">
-                                                            {statusCounts[status]}
-                                                        </span>
-                                                    </Label>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </PopoverContent>
-                            </Popover>
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                    <Button variant="outline">
-                                        <Filter />
-                                        Sort Order
-                                        {sortOrder !== 'latest' && (
-                                            <Badge size="sm" appearance="stroke">
-                                                {sortOrder.charAt(0).toUpperCase() + sortOrder.slice(1)}
-                                            </Badge>
-                                        )}
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-40 p-3" align="start">
-                                    <div className="space-y-3">
-                                        <div className="text-xs font-medium text-muted-foreground">
-                                            Sort By
-                                        </div>
-                                        <div className="space-y-3">
-                                            {['latest', 'older', 'oldest'].map((order) => (
-                                                <div key={order} className="flex items-center gap-2.5">
-                                                    <Checkbox
-                                                        id={order}
-                                                        checked={sortOrder === order}
-                                                        onCheckedChange={(checked) =>
-                                                            checked && setSortOrder(order)
-                                                        }
-                                                    />
-                                                    <Label
-                                                        htmlFor={order}
-                                                        className="grow flex items-center justify-between font-normal gap-1.5"
-                                                    >
-                                                        {order.charAt(0).toUpperCase() + order.slice(1)}
-                                                    </Label>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </PopoverContent>
-                            </Popover>
-                        </div>
-                    </CardHeading>
-                    <Toolbar />
-                </CardHeader>
+            <Card className="overflow-hidden bg-white border border-gray-300">
                 <CardTable>
                     <ScrollArea>
                         <DataGridTable />

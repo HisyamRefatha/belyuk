@@ -87,6 +87,7 @@ export interface DataGridProps<TData extends object> {
         bodyRow?: string;
         footer?: string;
         edgeCell?: string;
+        cellBorder?: string;
     };
 }
 
