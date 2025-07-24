@@ -168,7 +168,7 @@ function App() {
                         <div className="xl:col-span-6 w-full">
                             <div className="bg-[#f2f5f6f2] rounded-xl p-3 md:p-4 border text-black">
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 md:gap-4 mb-4 md:mb-6">
-                                    <h1 className="text-lg md:text-2xl font-bold text-black mb-1">Quick Analytics</h1>
+                                    <h2 className="text-base md:text-lg font-semibold">Quick Analytics</h2>
                                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 md:gap-3 w-full sm:w-auto">
                                         <Select>
                                             <SelectTrigger className="w-full sm:w-[180px] border border-gray-300 shadow-sm">
@@ -240,6 +240,12 @@ function App() {
                                         <Filter className="w-4 h-4" />
                                         Filter
                                     </button>
+                                </div>
+                                <div className="bg-white rounded-lg shadow-md border border-gray-300 p-3 md:p-5">
+                                    {/* Chart Placeholder */}
+                                    <div className="bg-white rounded-xl h-[150px] md:h-[200px] flex items-center justify-center text-gray-400">
+                                        Chart goes here...
+                                    </div>
                                 </div>
                             </div>
                         </div>
