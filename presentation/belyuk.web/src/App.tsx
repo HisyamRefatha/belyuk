@@ -12,7 +12,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { Search, Filter, MoreHorizontal, Plus, BarChart3, Package, Home, TrendingUp, FileText, Bell, User, ChevronDown, Calendar, Zap, Mail, DollarSign, ArrowUp, ArrowDown, Check, X, Clock, Settings, Tag, ShoppingBag, Activity, Users, CreditCard, Target, TrendingDown } from 'lucide-react';
-
+import { UsersList } from '@/app/dashboard/components/product-list'
 function App() {
     return (
         <ThemeProvider>
@@ -220,7 +220,7 @@ function App() {
                         {/* Products Section */}
                         <div className="xl:col-span-8 w-full">
                             <div className="bg-[#f2f5f6f2] rounded-xl p-3 md:p-4 border text-black h-full">
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 md:gap-4 mb-4">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 md:gap-4 mb-4 md:mb-6">
                                     <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                                         <div className="flex items-center gap-2">
                                             <h2 className="text-base md:text-lg font-semibold">Products</h2>
@@ -241,11 +241,9 @@ function App() {
                                         Filter
                                     </button>
                                 </div>
-                                <div className="bg-white rounded-lg shadow-md border border-gray-300 p-3 md:p-5">
+                                <div className="">
                                     {/* Chart Placeholder */}
-                                    <div className="bg-white rounded-xl h-[150px] md:h-[200px] flex items-center justify-center text-gray-400">
-                                        Chart goes here...
-                                    </div>
+                                        <UsersList />
                                 </div>
                             </div>
                         </div>
