@@ -45,500 +45,222 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Switch } from '@/components/ui/switch';
 
 interface IData {
-    id: string;
-    user: {
-        avatar: string;
-        name: string;
-        email: string;
-    };
-    labels: string[];
-    license: {
-        type: string;
-        left: string;
-    };
-    payment: string;
-    enforce: boolean;
+    Name: string;
+    Price: number;
+    Stock: number;
+    ChurnRisk: number;
 }
 
-const data: IData[] = [
+const productData: IData[] = [
     {
-        id: '1',
-        user: {
-            avatar: '300-3.png',
-            name: 'Tyler Hero',
-            email: 'tyler.hero@gmail.com',
-        },
-        labels: ['NFT', 'Artwork', 'Widget'],
-        license: {
-            type: 'Premium',
-            left: '4 months left',
-        },
-        payment: '6 Aug, 2024',
-        enforce: true,
+        Name: 'Digital NFT Artwork Collection',
+        Price: 299.99,
+        Stock: 15,
+        ChurnRisk: 0.25
     },
     {
-        id: '2',
-        user: {
-            avatar: '300-1.png',
-            name: 'Esther Howard',
-            email: 'esther.howard@gmail.com',
-        },
-        labels: ['Design', 'Template'],
-        license: {
-            type: 'Trial',
-            left: '16 days left',
-        },
-        payment: '21 Apr, 2024',
-        enforce: false,
+        Name: 'Premium Design Template Pack',
+        Price: 49.99,
+        Stock: 42,
+        ChurnRisk: 0.85
     },
     {
-        id: '3',
-        user: {
-            avatar: '300-11.png',
-            name: 'Jacob Jones',
-            email: 'jacob.jones@gmail.com',
-        },
-        labels: ['App', 'Plugin'],
-        license: {
-            type: 'Premium',
-            left: '2 months left',
-        },
-        payment: '14 Mar, 2024',
-        enforce: true,
+        Name: 'Mobile App Plugin Suite',
+        Price: 129.99,
+        Stock: 28,
+        ChurnRisk: 0.15
     },
     {
-        id: '4',
-        user: {
-            avatar: '300-2.png',
-            name: 'Cody Fisher',
-            email: 'cody.fisher@gmail.com',
-        },
-        labels: ['Template', 'NFT'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '20 Apr, 2024',
-        enforce: true,
+        Name: 'Standard Website Template',
+        Price: 29.99,
+        Stock: 67,
+        ChurnRisk: 0.45
     },
     {
-        id: '5',
-        user: {
-            avatar: '300-5.png',
-            name: 'Leslie Alexander',
-            email: 'leslie.alexander@gmail.com',
-        },
-        labels: ['Artwork', 'App'],
-        license: {
-            type: 'Premium',
-            left: '6 months left',
-        },
-        payment: '29 Jan, 2024',
-        enforce: false,
+        Name: 'Premium Artwork Bundle',
+        Price: 189.99,
+        Stock: 33,
+        ChurnRisk: 0.30
     },
     {
-        id: '6',
-        user: {
-            avatar: '300-4.png',
-            name: 'Robert Fox',
-            email: 'robert.fox@gmail.com',
-        },
-        labels: ['Design', 'Widget'],
-        license: {
-            type: 'Trial',
-            left: '5 days left',
-        },
-        payment: '17 Mar, 2024',
-        enforce: false,
+        Name: 'UI Widget Collection',
+        Price: 39.99,
+        Stock: 51,
+        ChurnRisk: 0.75
     },
     {
-        id: '7',
-        user: {
-            avatar: '300-20.png',
-            name: 'Guy Hawkins',
-            email: 'guy.hawkins@gmail.com',
-        },
-        labels: ['Plugin', 'Artwork'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '20 Jul, 2024',
-        enforce: false,
+        Name: 'Standard Plugin Package',
+        Price: 19.99,
+        Stock: 89,
+        ChurnRisk: 0.60
     },
     {
-        id: '8',
-        user: {
-            avatar: '300-23.png',
-            name: 'Theresa Webb',
-            email: 'theresa.webb@gmail.com',
-        },
-        labels: ['NFT', 'Template'],
-        license: {
-            type: 'Trial',
-            left: '2 days left',
-        },
-        payment: '06 May, 2024',
-        enforce: true,
+        Name: 'NFT Template Designer',
+        Price: 79.99,
+        Stock: 22,
+        ChurnRisk: 0.90
     },
     {
-        id: '9',
-        user: {
-            avatar: '300-22.png',
-            name: 'Marvin McKinney',
-            email: 'marvin.mckenney@gmail.com',
-        },
-        labels: ['Widget', 'App'],
-        license: {
-            type: 'Premium',
-            left: '1 months left',
-        },
-        payment: '16 Apr, 2024',
-        enforce: true,
+        Name: 'Premium App Development Kit',
+        Price: 249.99,
+        Stock: 18,
+        ChurnRisk: 0.20
     },
     {
-        id: '10',
-        user: {
-            avatar: '300-18.png',
-            name: 'Ronald Richards',
-            email: 'ronald.richards@gmail.com',
-        },
-        labels: ['Artwork', 'Design', 'Plugin'],
-        license: {
-            type: 'Premium',
-            left: '3 months left',
-        },
-        payment: '15 Jun, 2024',
-        enforce: false,
+        Name: 'Design System Components',
+        Price: 159.99,
+        Stock: 37,
+        ChurnRisk: 0.35
     },
     {
-        id: '11',
-        user: {
-            avatar: '300-6.png',
-            name: 'William Wilson',
-            email: 'william.wilson@gmail.com',
-        },
-        labels: ['App', 'Design'],
-        license: {
-            type: 'Trial',
-            left: '10 days left',
-        },
-        payment: '28 Jul, 2024',
-        enforce: true,
+        Name: 'Trial Mobile Framework',
+        Price: 9.99,
+        Stock: 95,
+        ChurnRisk: 0.80
     },
     {
-        id: '12',
-        user: {
-            avatar: '300-7.png',
-            name: 'Sophia Anderson',
-            email: 'sophia.anderson@gmail.com',
-        },
-        labels: ['Plugin', 'Template'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '12 Aug, 2024',
-        enforce: false,
+        Name: 'Premium Template Bundle',
+        Price: 199.99,
+        Stock: 26,
+        ChurnRisk: 0.25
     },
     {
-        id: '13',
-        user: {
-            avatar: '300-8.png',
-            name: 'Mason Taylor',
-            email: 'mason.taylor@gmail.com',
-        },
-        labels: ['NFT', 'Artwork'],
-        license: {
-            type: 'Premium',
-            left: '5 months left',
-        },
-        payment: '09 Sep, 2024',
-        enforce: true,
+        Name: 'Standard Artwork Collection',
+        Price: 59.99,
+        Stock: 44,
+        ChurnRisk: 0.55
     },
     {
-        id: '14',
-        user: {
-            avatar: '300-9.png',
-            name: 'Isabella Lee',
-            email: 'isabella.lee@gmail.com',
-        },
-        labels: ['App', 'Widget'],
-        license: {
-            type: 'Trial',
-            left: '8 days left',
-        },
-        payment: '22 Oct, 2024',
-        enforce: false,
+        Name: 'Widget Development Tools',
+        Price: 89.99,
+        Stock: 31,
+        ChurnRisk: 0.70
     },
     {
-        id: '15',
-        user: {
-            avatar: '300-10.png',
-            name: 'James Martinez',
-            email: 'james.martinez@gmail.com',
-        },
-        labels: ['Template', 'Design'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '15 Nov, 2024',
-        enforce: true,
+        Name: 'Template Design Studio',
+        Price: 149.99,
+        Stock: 19,
+        ChurnRisk: 0.40
     },
     {
-        id: '16',
-        user: {
-            avatar: '300-12.png',
-            name: 'Emily Thomas',
-            email: 'emily.thomas@gmail.com',
-        },
-        labels: ['Artwork', 'Plugin'],
-        license: {
-            type: 'Premium',
-            left: '7 months left',
-        },
-        payment: '03 Dec, 2024',
-        enforce: false,
+        Name: 'Premium Plugin Framework',
+        Price: 279.99,
+        Stock: 12,
+        ChurnRisk: 0.15
     },
     {
-        id: '17',
-        user: {
-            avatar: '300-13.png',
-            name: 'Benjamin Harris',
-            email: 'benjamin.harris@gmail.com',
-        },
-        labels: ['NFT', 'App'],
-        license: {
-            type: 'Trial',
-            left: '12 days left',
-        },
-        payment: '21 Jan, 2024',
-        enforce: true,
+        Name: 'NFT Creation Platform',
+        Price: 99.99,
+        Stock: 35,
+        ChurnRisk: 0.65
     },
     {
-        id: '18',
-        user: {
-            avatar: '300-14.png',
-            name: 'Charlotte Young',
-            email: 'charlotte.young@gmail.com',
-        },
-        labels: ['Template', 'Plugin'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '10 Feb, 2024',
-        enforce: false,
+        Name: 'Standard Plugin Tools',
+        Price: 34.99,
+        Stock: 58,
+        ChurnRisk: 0.50
     },
     {
-        id: '19',
-        user: {
-            avatar: '300-15.png',
-            name: 'Henry Clark',
-            email: 'henry.clark@gmail.com',
-        },
-        labels: ['Design', 'Widget'],
-        license: {
-            type: 'Premium',
-            left: '9 months left',
-        },
-        payment: '08 Mar, 2024',
-        enforce: true,
+        Name: 'Premium Design Assets',
+        Price: 219.99,
+        Stock: 21,
+        ChurnRisk: 0.10
     },
     {
-        id: '20',
-        user: {
-            avatar: '300-16.png',
-            name: 'Amelia Lewis',
-            email: 'amelia.lewis@gmail.com',
-        },
-        labels: ['Artwork', 'Template'],
-        license: {
-            type: 'Trial',
-            left: '3 days left',
-        },
-        payment: '26 Apr, 2024',
-        enforce: false,
+        Name: 'Template Marketplace Kit',
+        Price: 69.99,
+        Stock: 46,
+        ChurnRisk: 0.85
     },
     {
-        id: '21',
-        user: {
-            avatar: '300-17.png',
-            name: 'Lucas Walker',
-            email: 'lucas.walker@gmail.com',
-        },
-        labels: ['App', 'Plugin'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '19 May, 2024',
-        enforce: true,
+        Name: 'Standard App Components',
+        Price: 24.99,
+        Stock: 73,
+        ChurnRisk: 0.45
     },
     {
-        id: '22',
-        user: {
-            avatar: '300-19.png',
-            name: 'Grace Allen',
-            email: 'grace.allen@gmail.com',
-        },
-        labels: ['Widget', 'Design'],
-        license: {
-            type: 'Premium',
-            left: '11 months left',
-        },
-        payment: '03 Jun, 2024',
-        enforce: false,
+        Name: 'Premium Widget Suite',
+        Price: 179.99,
+        Stock: 29,
+        ChurnRisk: 0.20
     },
     {
-        id: '23',
-        user: {
-            avatar: '300-21.png',
-            name: 'Jack Harris',
-            email: 'jack.harris@gmail.com',
-        },
-        labels: ['NFT', 'Template'],
-        license: {
-            type: 'Trial',
-            left: '9 days left',
-        },
-        payment: '25 Jul, 2024',
-        enforce: true,
+        Name: 'NFT Trading Platform',
+        Price: 119.99,
+        Stock: 16,
+        ChurnRisk: 0.75
     },
     {
-        id: '24',
-        user: {
-            avatar: '300-24.png',
-            name: 'Aiden King',
-            email: 'aiden.king@gmail.com',
-        },
-        labels: ['App', 'Artwork'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '02 Aug, 2024',
-        enforce: false,
+        Name: 'Standard Artwork Tools',
+        Price: 44.99,
+        Stock: 52,
+        ChurnRisk: 0.60
     },
     {
-        id: '25',
-        user: {
-            avatar: '300-25.png',
-            name: 'Avery Green',
-            email: 'avery.green@gmail.com',
-        },
-        labels: ['Plugin', 'Widget'],
-        license: {
-            type: 'Premium',
-            left: '10 months left',
-        },
-        payment: '15 Sep, 2024',
-        enforce: true,
+        Name: 'Premium Plugin Collection',
+        Price: 259.99,
+        Stock: 14,
+        ChurnRisk: 0.25
     },
     {
-        id: '26',
-        user: {
-            avatar: '300-26.png',
-            name: 'Ella White',
-            email: 'ella.white@gmail.com',
-        },
-        labels: ['NFT', 'Template'],
-        license: {
-            type: 'Trial',
-            left: '14 days left',
-        },
-        payment: '09 Oct, 2024',
-        enforce: false,
+        Name: 'Template Builder Pro',
+        Price: 139.99,
+        Stock: 38,
+        ChurnRisk: 0.80
     },
     {
-        id: '27',
-        user: {
-            avatar: '300-26.png',
-            name: 'Henry King',
-            email: 'henry.king@gmail.com',
-        },
-        labels: ['Design', 'App'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '20 Nov, 2024',
-        enforce: true,
+        Name: 'Standard Design Pack',
+        Price: 54.99,
+        Stock: 49,
+        ChurnRisk: 0.35
     },
     {
-        id: '28',
-        user: {
-            avatar: '300-28.png',
-            name: 'Olivia Green',
-            email: 'olivia.green@gmail.com',
-        },
-        labels: ['Plugin', 'Artwork'],
-        license: {
-            type: 'Premium',
-            left: '8 months left',
-        },
-        payment: '05 Dec, 2024',
-        enforce: false,
+        Name: 'Premium Artwork Studio',
+        Price: 289.99,
+        Stock: 11,
+        ChurnRisk: 0.15
     },
     {
-        id: '29',
-        user: {
-            avatar: '300-29.png',
-            name: 'Mason Lewis',
-            email: 'mason.lewis@gmail.com',
-        },
-        labels: ['Template', 'Widget'],
-        license: {
-            type: 'Trial',
-            left: '7 days leftt',
-        },
-        payment: '22 Jan, 2024',
-        enforce: true,
+        Name: 'Widget Creator Suite',
+        Price: 74.99,
+        Stock: 41,
+        ChurnRisk: 0.90
     },
     {
-        id: '30',
-        user: {
-            avatar: '300-30.png',
-            name: 'Sophia Lee',
-            email: 'sophia.lee@gmail.com',
-        },
-        labels: ['Design', 'Plugin'],
-        license: {
-            type: 'Standard',
-            left: '',
-        },
-        payment: '11 Feb, 2024',
-        enforce: false,
+        Name: 'Standard Plugin Builder',
+        Price: 39.99,
+        Stock: 63,
+        ChurnRisk: 0.55
     },
     {
-        id: '31',
-        user: {
-            avatar: '300-31.png',
-            name: 'Matthew Martinez',
-            email: 'matthew.martinez@gmail.com',
-        },
-        labels: ['NFT', 'App'],
-        license: {
-            type: 'Premium',
-            left: '6 months left',
-        },
-        payment: '28 Mar, 2024',
-        enforce: true,
-    },
+        Name: 'Premium App Framework',
+        Price: 349.99,
+        Stock: 8,
+        ChurnRisk: 0.10
+    }
 ];
 
-const EnforceSwitch = ({ enforce }: { enforce: boolean }) => {
-    return <Switch id="size-sm" size="sm" defaultChecked={enforce} />;
+// Helper function to get stock status
+const getStockStatus = (stock: number) => {
+    if (stock <= 15) return 'Low Stock';
+    if (stock <= 30) return 'Medium Stock';
+    return 'In Stock';
 };
 
-const UsersList = () => {
+// Helper function to get churn risk level
+const getChurnRiskLevel = (churnRisk: number) => {
+    if (churnRisk >= 0.7) return 'High Risk';
+    if (churnRisk >= 0.4) return 'Medium Risk';
+    return 'Low Risk';
+};
+
+const ProductsList = () => {
     const [pagination, setPagination] = useState<PaginationState>({
         pageIndex: 0,
         pageSize: 5,
     });
     const [sorting, setSorting] = useState<SortingState>([
-        { id: 'user', desc: false },
+        { id: 'name', desc: false },
     ]);
     const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
     const [searchQuery, setSearchQuery] = useState('');
@@ -546,12 +268,12 @@ const UsersList = () => {
     const [sortOrder, setSortOrder] = useState<string>('latest');
 
     const filteredData = useMemo(() => {
-        let filtered = data;
+        let filtered = productData;
 
-        // Filter by status (2FA Enabled/Disabled)
+        // Filter by stock status
         if (selectedStatuses.length > 0) {
             filtered = filtered.filter((item) => {
-                const status = item.enforce ? '2FA Enabled' : '2FA Disabled';
+                const status = getStockStatus(item.Stock);
                 return selectedStatuses.includes(status);
             });
         }
@@ -561,38 +283,28 @@ const UsersList = () => {
             const searchLower = searchQuery.toLowerCase();
             filtered = filtered.filter(
                 (item) =>
-                    item.user.name.toLowerCase().includes(searchLower) ||
-                    item.user.email.toLowerCase().includes(searchLower) ||
-                    item.labels.some((label) =>
-                        label.toLowerCase().includes(searchLower),
-                    ) ||
-                    item.license.type.toLowerCase().includes(searchLower) ||
-                    item.payment.toLowerCase().includes(searchLower),
+                    item.Name.toLowerCase().includes(searchLower) ||
+                    item.Price.toString().includes(searchLower) ||
+                    item.Stock.toString().includes(searchLower)
             );
         }
 
         // Apply sorting based on sortOrder
         if (sortOrder === 'latest') {
-            filtered = [...filtered].sort(
-                (a, b) => new Date(b.payment).getTime() - new Date(a.payment).getTime(),
-            );
+            filtered = [...filtered].sort((a, b) => b.Price - a.Price);
         } else if (sortOrder === 'older') {
-            filtered = [...filtered].sort(
-                (a, b) => new Date(a.payment).getTime() - new Date(b.payment).getTime(),
-            );
-        } else if (sortOrder === 'oldest') {
-            filtered = [...filtered].sort(
-                (a, b) => new Date(a.payment).getTime() - new Date(b.payment).getTime(),
-            );
+            filtered = [...filtered].sort((a, b) => a.Price - b.Price);
+        } else if (sortOrder === 'stock') {
+            filtered = [...filtered].sort((a, b) => b.Stock - a.Stock);
         }
 
         return filtered;
     }, [searchQuery, selectedStatuses, sortOrder]);
 
     const statusCounts = useMemo(() => {
-        return data.reduce(
+        return productData.reduce(
             (acc, item) => {
-                const status = item.enforce ? '2FA Enabled' : '2FA Disabled';
+                const status = getStockStatus(item.Stock);
                 acc[status] = (acc[status] || 0) + 1;
                 return acc;
             },
@@ -609,44 +321,23 @@ const UsersList = () => {
     const columns = useMemo<ColumnDef<IData>[]>(
         () => [
             {
-                accessorKey: 'id',
-                accessorFn: (row) => row.id,
-                header: () => <DataGridTableRowSelectAll />,
-                cell: ({ row }) => <DataGridTableRowSelect row={row} />,
-                enableSorting: false,
-                enableHiding: false,
-                enableResizing: false,
-                size: 51,
-                meta: {
-                    cellClassName: '',
-                },
-            },
-            {
-                id: 'user',
-                accessorFn: (row) => row.user,
+                id: 'name',
+                accessorFn: (row) => row.Name,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Subscriber" column={column} className="dark:text-[#1a282d]"/>
+                    <DataGridColumnHeader title="Product Name" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => (
                     <div className="flex items-center gap-2.5">
-                        <img
-                            
-                            className="size-7 rounded-full shrink-0"
-                            alt="image"
-                        />
                         <div className="flex flex-col">
                             <Link
                                 className="font-medium text-mono dark:text-[#1a282d] hover:text-primary-active mb-px"
                                 to="#"
                             >
-                                {row.original.user.name}
+                                {row.original.Name}
                             </Link>
-                            <Link
-                                className="text-sm text-secondary-foreground dark:text-[#1a282d] hover:text-primary-active"
-                                to="#"
-                            >
-                                {row.original.user.email}
-                            </Link>
+                            <span className="text-sm text-secondary-foreground dark:text-[#1a282d]">
+                                {getChurnRiskLevel(row.original.ChurnRisk)}
+                            </span>
                         </div>
                     </div>
                 ),
@@ -657,79 +348,88 @@ const UsersList = () => {
                 },
             },
             {
-                id: 'labels',
-                accessorFn: (row) => row.labels,
+                id: 'price',
+                accessorFn: (row) => row.Price,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Products" column={column} className="dark:text-[#1a282d]"/>
+                    <DataGridColumnHeader title="Price" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => (
-                    <div className="flex gap-1.5">
-                        {row.original.labels.map((label: string, index: number) => (
-                            <Badge
-                                key={index}
-                                size="sm"
-                                variant="secondary"
-                                appearance="solid"
-                            >
-                                {label}
-                            </Badge>
-                        ))}
-                    </div>
+                    <span className="font-medium text-foreground">
+                        ${row.original.Price.toFixed(2)}
+                    </span>
                 ),
                 enableSorting: true,
-                size: 200,
+                size: 120,
                 meta: {
                     headerClassName: '',
                 },
             },
             {
-                id: 'license',
-                accessorFn: (row) => row.license,
+                id: 'stock',
+                accessorFn: (row) => row.Stock,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="License" column={column} className="dark:text-[#1a282d]" />
+                    <DataGridColumnHeader title="Stock" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => (
                     <div className="flex flex-col">
                         <span className="text-sm text-foreground font-medium">
-                            {row.original.license.type}
+                            {row.original.Stock} units
                         </span>
+                        <Badge
+                            size="sm"
+                            variant={row.original.Stock <= 15 ? "destructive" : row.original.Stock <= 30 ? "default" : "secondary"}
+                            appearance="solid"
+                        >
+                            {getStockStatus(row.original.Stock)}
+                        </Badge>
+                    </div>
+                ),
+                enableSorting: true,
+                size: 150,
+                meta: {
+                    headerClassName: '',
+                },
+            },
+            {
+                id: 'churnRisk',
+                accessorFn: (row) => row.ChurnRisk,
+                header: ({ column }) => (
+                    <DataGridColumnHeader title="Churn Risk" column={column} className="dark:text-[#1a282d]" />
+                ),
+                cell: ({ row }) => (
+                    <div className="flex flex-col">
+                        <div className="w-full bg-gray-200 rounded-full h-2 mb-1">
+                            <div
+                                className={`h-2 rounded-full ${row.original.ChurnRisk >= 0.7 ? 'bg-red-500' :
+                                        row.original.ChurnRisk >= 0.4 ? 'bg-yellow-500' : 'bg-green-500'
+                                    }`}
+                                style={{ width: `${row.original.ChurnRisk * 100}%` }}
+                            ></div>
+                        </div>
                         <span className="text-xs text-secondary-foreground">
-                            {row.original.license.left}
+                            {(row.original.ChurnRisk * 100).toFixed(0)}%
                         </span>
                     </div>
                 ),
                 enableSorting: true,
-                size: 175,
+                size: 150,
                 meta: {
                     headerClassName: '',
                 },
             },
             {
-                id: 'payment',
-                accessorFn: (row) => row.payment,
+                id: 'value',
+                accessorFn: (row) => row.Price * row.Stock,
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Latest Payment" column={column} className="dark:text-[#1a282d]"/>
+                    <DataGridColumnHeader title="Total Value" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => (
                     <span className="text-foreground font-medium">
-                        {row.original.payment}
+                        ${(row.original.Price * row.original.Stock).toFixed(2)}
                     </span>
                 ),
                 enableSorting: true,
-                size: 175,
-                meta: {
-                    headerClassName: '',
-                },
-            },
-            {
-                id: 'enforce',
-                accessorFn: (row) => row.enforce,
-                header: ({ column }) => (
-                    <DataGridColumnHeader title="Enforce 2FA" column={column} className="dark:text-[#1a282d]" />
-                ),
-                cell: ({ row }) => <EnforceSwitch enforce={row.original.enforce} />,
-                enableSorting: true,
-                size: 137,
+                size: 150,
                 meta: {
                     headerClassName: '',
                 },
@@ -737,17 +437,22 @@ const UsersList = () => {
             {
                 id: 'actions',
                 header: ({ column }) => (
-                    <DataGridColumnHeader title="Invoices" column={column} className="dark:text-[#1a282d]" />
+                    <DataGridColumnHeader title="Actions" column={column} className="dark:text-[#1a282d]" />
                 ),
                 enableSorting: false,
                 cell: () => {
                     return (
-                        <Button mode="link" underlined="dashed">
-                            Download
-                        </Button>
+                        <div className="flex gap-2">
+                            <Button mode="link" underlined="dashed" size="sm">
+                                Edit
+                            </Button>
+                            <Button mode="link" underlined="dashed" size="sm" variant="destructive">
+                                Delete
+                            </Button>
+                        </div>
                     );
                 },
-                size: 100,
+                size: 120,
             },
         ],
         [],
@@ -757,7 +462,7 @@ const UsersList = () => {
         columns,
         data: filteredData,
         pageCount: Math.ceil((filteredData?.length || 0) / pagination.pageSize),
-        getRowId: (row: IData) => String(row.id),
+        getRowId: (row: IData, index: number) => String(index),
         state: {
             pagination,
             sorting,
@@ -802,7 +507,7 @@ const UsersList = () => {
                 headerRow: 'dark:bg-white',
                 edgeCell: 'dark:border-[#eeeaeb]',
                 cellBorder: 'dark:border-[#eeeaeb]',
-            } }
+            }}
             table={table}
             recordCount={filteredData?.length || 0}
             tableLayout={{
@@ -827,6 +532,4 @@ const UsersList = () => {
     );
 };
 
-export { UsersList };
-
-
+export { ProductsList };

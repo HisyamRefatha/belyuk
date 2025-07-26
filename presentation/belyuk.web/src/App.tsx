@@ -12,7 +12,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { Search, Filter, MoreHorizontal, Plus, BarChart3, Package, Home, TrendingUp, FileText, Bell, User, ChevronDown, Calendar, Zap, Mail, DollarSign, ArrowUp, ArrowDown, Check, X, Clock, Settings, Tag, ShoppingBag, Activity, Users, CreditCard, Target, TrendingDown } from 'lucide-react';
-import { UsersList } from '@/app/dashboard/components/product-list'
+import { ProductsList } from '@/app/dashboard/components/product-list'
 function App() {
     return (
         <ThemeProvider>
@@ -241,7 +241,7 @@ function App() {
                                         Filter
                                     </button>
                                 </div>
-                                <UsersList />
+                                <ProductsList />
                             </div>
                         </div>
                     </div>

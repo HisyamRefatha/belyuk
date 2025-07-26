@@ -99,7 +99,7 @@ function DataGridColumnHeader<TData, TValue>({
             <Button
                 variant="ghost"
                 className={cn(
-                    'text-secondary-foreground rounded-md font-normal -ms-2 px-2 h-7 hover:bg-secondary data-[state=open]:bg-secondary hover:text-foreground data-[state=open]:text-foreground',
+                    'text-secondary-foreground rounded-md font-normal -ms-2 px-2 h-7 hover:bg-secondary dark:hover:bg-[#f1f5f9] data-[state=open]:bg-secondary dark:data-[state=open]:bg-white hover:text-foreground data-[state=open]:text-foreground',
                     className,
                 )}
                 disabled={isLoading || recordCount === 0}
@@ -150,12 +150,12 @@ function DataGridColumnHeader<TData, TValue>({
             <div className="flex items-center h-full gap-1.5 justify-between">
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>{headerButton()}</DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-40" align="start">
+                    <DropdownMenuContent className="w-40 dark:bg-white dark:text-black dark:border-[#e2e8f0]" align="start">
                         {filter && <DropdownMenuLabel>{filter}</DropdownMenuLabel>}
 
                         {filter &&
                             (column.getCanSort() || column.getCanPin() || visibility) && (
-                                <DropdownMenuSeparator />
+                            <DropdownMenuSeparator className="dark:bg-[#e2e8f0]"/>
                             )}
 
                         {column.getCanSort() && (
@@ -197,7 +197,7 @@ function DataGridColumnHeader<TData, TValue>({
 
                         {(filter || column.getCanSort()) &&
                             (column.getCanSort() || column.getCanPin() || visibility) && (
-                                <DropdownMenuSeparator />
+                                <DropdownMenuSeparator className="dark:bg-[#e2e8f0]"/>
                             )}
 
                         {props.tableLayout?.columnsPinnable && column.getCanPin() && (
@@ -231,7 +231,7 @@ function DataGridColumnHeader<TData, TValue>({
 
                         {props.tableLayout?.columnsMovable && (
                             <>
-                                <DropdownMenuSeparator />
+                                <DropdownMenuSeparator className="dark:bg-[#e2e8f0]"/>
                                 <DropdownMenuItem
                                     onClick={() => moveColumn('left')}
                                     disabled={!canMove('left') || column.getIsPinned() !== false}

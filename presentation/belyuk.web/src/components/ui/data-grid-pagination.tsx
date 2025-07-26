@@ -77,8 +77,8 @@ function DataGridPagination(props: DataGridPaginationProps) {
                     size="sm"
                     mode="icon"
                     variant="ghost"
-                    className={cn(btnBaseClasses, 'text-muted-foreground', {
-                        'bg-accent text-accent-foreground': pageIndex === i,
+                    className={cn(btnBaseClasses, 'text-muted-foreground dark:hover:bg-[#f0fdf4] dark:hover:text-[#1a282d]', {
+                        'bg-accent dark:bg-[#f0fdf4] text-accent-foreground dark:text-[#1a282d]': pageIndex === i,
                     })}
                     onClick={() => {
                         if (pageIndex !== i) {
@@ -100,7 +100,7 @@ function DataGridPagination(props: DataGridPaginationProps) {
                 <Button
                     size="sm"
                     mode="icon"
-                    className={btnBaseClasses}
+                    className={cn(btnBaseClasses, 'dark:hover:bg-[#f0fdf4]')}
                     variant="ghost"
                     onClick={() => table.setPageIndex(currentGroupStart - 1)}
                 >
@@ -116,7 +116,7 @@ function DataGridPagination(props: DataGridPaginationProps) {
         if (currentGroupEnd < pageCount) {
             return (
                 <Button
-                    className={btnBaseClasses}
+                    className={cn(btnBaseClasses, 'dark:hover:bg-[#f0fdf4]')}
                     variant="ghost"
                     size="sm"
                     mode="icon"
@@ -176,12 +176,12 @@ function DataGridPagination(props: DataGridPaginationProps) {
                                     size="sm"
                                     mode="icon"
                                     variant="ghost"
-                                    className={btnArrowClasses}
+                                    className={cn(btnArrowClasses, 'dark:hover:bg-[#f0fdf4] dark:hover:text-[#1a282d]')}
                                     onClick={() => table.previousPage()}
                                     disabled={!table.getCanPreviousPage()}
                                 >
                                     <span className="sr-only">Go to previous page</span>
-                                    <ChevronLeftIcon className="size-4" />
+                                        <ChevronLeftIcon className="size-4" />
                                 </Button>
 
                                 {renderEllipsisPrevButton()}
@@ -194,12 +194,12 @@ function DataGridPagination(props: DataGridPaginationProps) {
                                     size="sm"
                                     mode="icon"
                                     variant="ghost"
-                                    className={btnArrowClasses}
+                                    className={cn(btnArrowClasses, 'dark:hover:bg-[#f0fdf4] dark:hover:text-[#1a282d]')}
                                     onClick={() => table.nextPage()}
                                     disabled={!table.getCanNextPage()}
                                 >
                                     <span className="sr-only">Go to next page</span>
-                                    <ChevronRightIcon className="size-4" />
+                                        <ChevronRightIcon className="size-4" />
                                 </Button>
                             </div>
                         )}
