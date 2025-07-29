@@ -524,7 +524,7 @@ const ProductsList = () => {
                         <ScrollBar orientation="horizontal" />
                     </ScrollArea>
                 </CardTable>
-                <CardFooter>
+                <CardFooter className="dark:border-[#e2e8f0]">
                     <DataGridPagination />
                 </CardFooter>
             </Card>
