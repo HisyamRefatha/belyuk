@@ -1,0 +1,34 @@
+@@ .. @@
+body {
+    letter-spacing: var(--tracking-normal);
+}
+
++/* Smooth scrolling for better user experience */
++html {
++    scroll-behavior: smooth;
++}
++
++/* Enhanced backdrop blur support */
++.backdrop-blur-md {
++    backdrop-filter: blur(12px);
++    -webkit-backdrop-filter: blur(12px);
++}
++
++/* Custom navbar transitions */
++.navbar-transition {
++    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++}
++
++/* Ensure proper stacking context for fixed navbar */
++.navbar-fixed {
++    position: fixed;
++    top: 0;
++    left: 0;
++    right: 0;
++    z-index: 50;
++}
++
+ .bg-teal{
+     background-color: var(--teal-bg);
+ }
+@@ .. @@
