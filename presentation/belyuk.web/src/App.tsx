@@ -117,9 +117,147 @@ function App() {
                                             hover:bg-primary
                                             backdrop-blur-sm
                                         `
+                        
+                        {/* Navigation Menu */}
+                        <nav className="ml-8 hidden md:flex items-center space-x-1">
+                            <Link
+                                to="/"
+                                className={`
+                                    flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                                    ${isScrolled 
+                                        ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+                                        : 'bg-primary/90 text-primary-foreground hover:bg-primary'
                                     }
                                 `}
                             >
+                                <Home className="w-4 h-4" />
+                                Home
+                            </Link>
+                            <Link
+                                to="/products"
+                                className={`
+                                    flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                                    ${isScrolled 
+                                        ? 'text-foreground hover:bg-accent hover:text-accent-foreground' 
+                                        : 'text-foreground/90 hover:bg-white/10'
+                                    }
+                                `}
+                            >
+                                <Tag className="w-4 h-4" />
+                                Products
+                            </Link>
+                            <Link
+                                to="/analytics"
+                                className={`
+                                    flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                                    ${isScrolled 
+                                        ? 'text-foreground hover:bg-accent hover:text-accent-foreground' 
+                                        : 'text-foreground/90 hover:bg-white/10'
+                                    }
+                                `}
+                            >
+                                <BarChart3 className="w-4 h-4" />
+                                Analytics
+                            </Link>
+                            <Link
+                                to="/reports"
+                                className={`
+                                    flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                                    ${isScrolled 
+                                        ? 'text-foreground hover:bg-accent hover:text-accent-foreground' 
+                                        : 'text-foreground/90 hover:bg-white/10'
+                                    }
+                                `}
+                            >
+                                <FileText className="w-4 h-4" />
+                                Reports
+                            </Link>
+                        </nav>
+                                    }
+                    
+                    {/* Center Search Bar */}
+                    <div className="flex-1 flex justify-center max-w-md mx-4">
+                        <div className="relative w-full">
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                            <input
+                                type="text"
+                                placeholder="Search with AI"
+                                className={`
+                                    w-full pl-10 pr-4 py-2 rounded-lg text-sm transition-all duration-300
+                                    ${isScrolled 
+                                        ? 'bg-background border border-input focus:ring-2 focus:ring-ring focus:border-ring' 
+                                        : 'bg-white/10 border border-white/20 text-white placeholder:text-white/70 focus:bg-white/20 focus:border-white/40'
+                                    }
+                                    focus:outline-none
+                                `}
+                            />
+                        </div>
+                    </div>
+                    
+                            >
+                        {/* Notification Bell */}
+                        <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className={`
+                                relative p-2 transition-all duration-300
+                                ${isScrolled 
+                                    ? 'hover:bg-accent' 
+                                    : 'hover:bg-white/10'
+                                }
+                            `}
+                        >
+                            <Bell className="w-4 h-4" />
+                            <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                        </Button>
+                        
+                        {/* Help/Support Button */}
+                        <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className={`
+                                p-2 transition-all duration-300
+                                ${isScrolled 
+                                    ? 'hover:bg-accent' 
+                                    : 'hover:bg-white/10'
+                                }
+                            `}
+                        >
+                            <span className="w-4 h-4 border border-current rounded-full flex items-center justify-center text-xs font-bold">?</span>
+                        </Button>
+                        
+                        {/* Settings Button */}
+                        <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className={`
+                                p-2 transition-all duration-300
+                                ${isScrolled 
+                                    ? 'hover:bg-accent' 
+                                    : 'hover:bg-white/10'
+                                }
+                            `}
+                        >
+                            <Settings className="w-4 h-4" />
+                        </Button>
+                        
+                        {/* User Avatar */}
+                        <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className={`
+                                p-1 transition-all duration-300
+                                ${isScrolled 
+                                    ? 'hover:bg-accent' 
+                                    : 'hover:bg-white/10'
+                                }
+                            `}
+                        >
+                            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <User className="w-4 h-4 text-white" />
+                            </div>
+                        </Button>
+                        
                                 Share
                             </Button>
                             <div className={`
