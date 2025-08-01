@@ -117,6 +117,9 @@ function App() {
                                             hover:bg-primary
                                             backdrop-blur-sm
                                         `
+                                    }
+                                `}
+                            >
                         
                         {/* Navigation Menu */}
                         <nav className="ml-8 hidden md:flex items-center space-x-1">
@@ -173,7 +176,7 @@ function App() {
                                 Reports
                             </Link>
                         </nav>
-                                    }
+                                    
                     
                     {/* Center Search Bar */}
                     <div className="flex-1 flex justify-center max-w-md mx-4">
@@ -194,7 +197,6 @@ function App() {
                         </div>
                     </div>
                     
-                            >
                         {/* Notification Bell */}
                         <Button 
                             variant="ghost" 
