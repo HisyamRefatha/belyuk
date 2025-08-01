@@ -354,7 +354,7 @@ const ProductsList = () => {
                     <DataGridColumnHeader title="Price" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => (
-                    <span className="font-medium text-foreground">
+                    <span className="font-medium text-foreground dark:text-[#1a282d]">
                         ${row.original.Price.toFixed(2)}
                     </span>
                 ),
@@ -372,12 +372,12 @@ const ProductsList = () => {
                 ),
                 cell: ({ row }) => (
                     <div className="flex flex-col">
-                        <span className="text-sm text-foreground font-medium">
+                        <span className="text-sm text-foreground font-medium dark:text-[#1a282d]">
                             {row.original.Stock} units
                         </span>
                         <Badge
                             size="sm"
-                            variant={row.original.Stock <= 15 ? "destructive" : row.original.Stock <= 30 ? "default" : "secondary"}
+                            variant={row.original.Stock <= 15 ? "primary" : row.original.Stock <= 30 ? "mono" : "secondary"}
                             appearance="solid"
                         >
                             {getStockStatus(row.original.Stock)}
@@ -406,7 +406,7 @@ const ProductsList = () => {
                                 style={{ width: `${row.original.ChurnRisk * 100}%` }}
                             ></div>
                         </div>
-                        <span className="text-xs text-secondary-foreground">
+                        <span className="text-xs text-secondary-foreground dark:text-[#1a282d]">
                             {(row.original.ChurnRisk * 100).toFixed(0)}%
                         </span>
                     </div>
@@ -424,7 +424,7 @@ const ProductsList = () => {
                     <DataGridColumnHeader title="Total Value" column={column} className="dark:text-[#1a282d]" />
                 ),
                 cell: ({ row }) => (
-                    <span className="text-foreground font-medium">
+                    <span className="text-foreground font-medium dark:text-[#1a282d]">
                         ${(row.original.Price * row.original.Stock).toFixed(2)}
                     </span>
                 ),
@@ -504,7 +504,8 @@ const ProductsList = () => {
     return (
         <DataGrid
             tableClassNames={{
-                headerRow: 'dark:bg-white',
+                bodyRow: 'dark:hover:bg-[#f9fbfd]',
+                headerRow: 'dark:bg-[#f9fbfd]',
                 edgeCell: 'dark:border-[#eeeaeb]',
                 cellBorder: 'dark:border-[#eeeaeb]',
             }}
@@ -517,11 +518,11 @@ const ProductsList = () => {
                 cellBorder: true,
             }}
         >
-            <Card className="overflow-hidden bg-white border border-gray-300">
+            <Card className="overflow-hidden bg-white border border-gray-300 shadow-md">
                 <CardTable>
                     <ScrollArea>
                         <DataGridTable />
-                        <ScrollBar orientation="horizontal" />
+                        <ScrollBar orientation="horizontal"/>
                     </ScrollArea>
                 </CardTable>
                 <CardFooter className="dark:border-[#e2e8f0]">
