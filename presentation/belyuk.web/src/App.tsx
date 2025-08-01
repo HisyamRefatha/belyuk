@@ -98,29 +98,6 @@ function App() {
                                 </svg>
                             </Link>
                         </div>
-                        <div className="grow flex justify-center" />
-                        <div className="flex-1 flex justify-end items-center gap-2 md:gap-4">
-                            <Button 
-                                size="sm" 
-                                className={`
-                                    text-xs md:text-sm rounded-lg px-2 md:px-3 
-                                    transition-all duration-300 ease-in-out
-                                    ${isScrolled 
-                                        ? `
-                                            bg-primary text-primary-foreground 
-                                            hover:bg-primary/90 
-                                            shadow-sm hover:shadow-md
-                                            transform hover:scale-105
-                                        ` 
-                                        : `
-                                            bg-primary/90 text-primary-foreground 
-                                            hover:bg-primary
-                                            backdrop-blur-sm
-                                        `
-                                    }
-                                `}
-                            >
-                        
                         {/* Navigation Menu */}
                         <nav className="ml-8 hidden md:flex items-center space-x-1">
                             <Link
@@ -197,6 +174,7 @@ function App() {
                         </div>
                     </div>
                     
+                        <div className="flex-1 flex justify-end items-center gap-2 md:gap-4">
                         {/* Notification Bell */}
                         <Button 
                             variant="ghost" 
@@ -260,6 +238,26 @@ function App() {
                             </div>
                         </Button>
                         
+                            <Button 
+                                size="sm" 
+                                className={`
+                                    text-xs md:text-sm rounded-lg px-2 md:px-3 
+                                    transition-all duration-300 ease-in-out
+                                    ${isScrolled 
+                                        ? `
+                                            bg-primary text-primary-foreground 
+                                            hover:bg-primary/90 
+                                            shadow-sm hover:shadow-md
+                                            transform hover:scale-105
+                                        ` 
+                                        : `
+                                            bg-primary/90 text-primary-foreground 
+                                            hover:bg-primary
+                                            backdrop-blur-sm
+                                        `
+                                    }
+                                `}
+                            >
                                 Share
                             </Button>
                             <div className={`
