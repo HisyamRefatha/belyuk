@@ -135,7 +135,7 @@ function DataGridColumnHeader<TData, TValue>({
                 mode="icon"
                 size="sm"
                 variant="ghost"
-                className="-me-1 size-7 rounded-md"
+                className="-me-1 size-7 rounded-md dark:hover:bg-[#f0fdf4] dark:hover:text-[#1a282d]"
                 onClick={() => column.pin(false)}
                 aria-label={`Unpin ${title} column`}
                 title={`Unpin ${title} column`}

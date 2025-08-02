@@ -27,11 +27,11 @@ function App() {
                 requestAnimationFrame(() => {
                     // Get current scroll position
                     const scrollTop = window.scrollY || document.documentElement.scrollTop
-                    
+
                     // Update state based on scroll position
                     // Any scroll amount > 0 triggers the background change
                     setIsScrolled(scrollTop > 0)
-                    
+
                     ticking = false
                 })
                 ticking = true

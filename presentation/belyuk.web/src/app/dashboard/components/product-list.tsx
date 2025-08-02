@@ -507,7 +507,7 @@ const ProductsList = () => {
                 bodyRow: 'dark:hover:bg-[#f9fbfd]',
                 headerRow: 'dark:bg-[#f9fbfd]',
                 edgeCell: 'dark:border-[#eeeaeb]',
-                cellBorder: 'dark:border-[#eeeaeb]',
+                cellBorder: 'dark:border-[#eeeaeb] dark:data-pinned:bg-[#f8fafc] dark:[&[data-pinned][data-last-col]]:border-[#e2e8f0]',
             }}
             table={table}
             recordCount={filteredData?.length || 0}
