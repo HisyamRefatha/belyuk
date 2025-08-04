@@ -158,19 +158,17 @@ export function Navbar() {
                     </Button>
 
                     {/* Help/Support Button */}
-                    <Button
-                        variant="ghost"
-                        size="sm"
+                    <div
                         className={`
-            p-2 transition-all duration-300
-            ${isScrolled
+                        p-2 transition-all duration-300
+                        ${isScrolled
                                 ? 'hover:bg-accent'
                                 : 'hover:bg-white/10'
                             }
-        `}
+                        `}
                     >
                         <ModeToggle />
-                    </Button>
+                    </div>
 
                     {/* Settings Button */}
                     <Button
