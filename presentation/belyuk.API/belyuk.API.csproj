@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\belyuk.Core\belyuk.Core.csproj" />
+    <ProjectReference Include="..\..\belyuk.Data\belyuk.Data.csproj" />
+    <ProjectReference Include="..\..\belyuk.Shared\belyuk.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
