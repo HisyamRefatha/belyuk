@@ -1,4 +1,5 @@
-﻿using EntityFrameworkCore.Scaffolding.Handlebars;
+﻿using belyuk.Data.CodeTemplates.CodeGenerator.Generator;
+using EntityFrameworkCore.Scaffolding.Handlebars;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -55,15 +56,15 @@ namespace belyuk.Data.CodeTemplates.CodeGenerator
                 var setting = Newtonsoft.Json.JsonConvert.DeserializeObject<SettingCodeGeneratorObject>(settings_txt);
 
                 //BACKEND
-                //CodeTemplate.GenerateGetByID(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateGetList(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateResponseCQRS(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateRequestCQRS(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateAdd(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateDelete(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateEdit(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateActive(setting.PrefixNamespace, model, _options, setting.Exclude);
-                //CodeTemplate.GenerateAPICQRS(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateGetByID(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateGetList(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateResponseCQRS(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateRequestCQRS(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateAdd(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateDelete(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateEdit(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateActive(setting.PrefixNamespace, model, _options, setting.Exclude);
+                CodeTemplate.GenerateAPICQRS(setting.PrefixNamespace, model, _options, setting.Exclude);
 
                 //FRONTEND
                 //CodeTemplate.GenerateViewIndex(setting.PrefixNamespace, model, _options, setting.Exclude);
